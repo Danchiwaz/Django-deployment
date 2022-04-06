@@ -1,0 +1,59 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Login {% endblock title %} 
+{% block content %} 
+
+{% include 'navbar.html' %}
+
+<div
+  class="container d-flex flex-column justify-content-evenly align-items-center"
+>
+  <h2 class="text-center mt-3 mb-4 reg-heading">Login to your Account</h2>
+  {% if messages %} {% for message in messages %}
+  <div class="alert mb-2 mt-2 alert-color">{{ message }}</div>
+  {% endfor %} {% endif %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div>
+      <input
+        class="input-field"
+        type="text"
+        name="username"
+        placeholder="Username"
+      />
+    </div>
+
+    <div>
+      <input
+        class="input-field"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+    </div>
+    <div class="check-boxes">
+      <div>
+        <p><input type="checkbox" /> Remember me</p>
+      </div>
+      <div>
+        <a href="#">Forgot Password</a>
+      </div>
+    </div>
+
+    <div>
+      <button class="submit-btn" type="submit">Login</button>
+    </div>
+    <div class="mt-2">
+      <small
+        >Don't have an account?<a href="{% url 'registration' %}"
+          >Register</a
+        ></small
+      >
+    </div>
+  </form>
+</div>
+
+<div class="bottom">
+  <img src="{% static 'images/wavebottom.svg' %}" alt="" />
+</div>
+{% endblock content %}

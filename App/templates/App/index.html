@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    SuccessPage
+{% endblock title %}
+
+
+{% block content %}
+<div class="success_body">
+    {% include 'navbar.html' %}
+    <div class="hero-section">
+        <div class="hero_section-desc">
+            <div class="hero-head">
+                
+                {% if request.user.is_authenticated %}
+                <h1>Welcome , {{ user.username }}</h2>
+                    <h1>Thank you for registering with Us</h1>
+                    <p>Lets make your dream Come True By Providing you with amazing softwares for your business.We have been trusted by 1000+ Businesses Globally.We make your Business Scale Globally</p>
+                {% else %}
+                <h1>Great Business Begins with</h2>
+                    <h1>Amazing UI And Logic</h1>
+                    <p>Lets make your dream Come True By Providing you with amazing softwares for your business.We have been trusted by 1000+ Businesses Globally.We make your Business Scale Globally</p>
+                    
+                {% endif %}
+               
+                
+            </div>
+            
+            {% if request.user.is_authenticated %}
+            <a class="btn mt-4 btn-signUp" href="{% url 'logout_page' %}">Logout, {{ user.username }}</a>
+            {% else %}
+            <div class="hero-buttons">
+                <a class="btn btn-signUp" href="#">Start today</a>
+                <a class="btn btn-login" href="#">Registration</a>
+            </div>
+            {% endif %}
+                
+           
+        </div>
+        <div class="hero-img">
+            <img src="{% static 'images/hero3.png' %}" alt="">
+        </div>
+    </div>
+{% endblock content %}
+</div>
+
+    
+    

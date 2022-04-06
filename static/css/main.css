@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif; */
+}
+.success_body{
+    background: #002233;
+    
+}
+.navtoggler-color{
+    background-color: 
+    #2a2936;
+    border: none;
+    outline: none;
+}
+.toggler-icon{
+    color: white;
+}
+.nav-width{
+    height: 12vh;
+    background-color:#002233 ;
+}
+.nav-links-margin{
+    margin-left: 20rem;
+}
+.item-nav{
+    padding-right: 4rem;
+    color: whitesmoke;
+}
+.item-nav-specific{
+    color: whitesmoke;
+}
+.hero-section{
+    height: 88vh;
+    /* background-color: #002233; */
+    background: url("/static/images/herobottom.svg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    
+}
+.btn-signUp{
+    background-color: #0d99ff;
+    border-radius: 60px;
+    margin-right: 2rem;
+    color: whitesmoke;
+    padding: 1rem 3rem;
+}
+.btn-signUp:hover{
+    background-color: #0d99ff;
+    color: white;
+}
+
+.btn-login{
+    background-color: 
+    #2a2936;
+    color: whitesmoke;
+    border-radius: 60px;
+    padding: 1rem 3rem;
+}
+.btn-login:hover{
+    background-color: #2a2936;
+    color: white;
+}
+.hero-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hero_section-desc{
+    flex: 1;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.hero-head > h1{
+    color:white;
+    font-size: 40px;
+    font-weight: 800;
+    width: fit-content;
+}
+.hero-head > p{
+    color: whitesmoke;
+    margin-top: 2rem;
+}
+.hero-buttons{
+    margin-top: 5rem;
+}
+.reg-heading{
+    color: #002233;
+}
+.input-field{
+    border-radius: 60px;
+    border: 1px solid #002233;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    padding-left: 2rem;
+    width: 450px;
+    margin-bottom: 2rem;
+    color: #002233;
+    
+    /* padding-right: 1; */
+}
+.input-field::placeholder{
+    color: #002233;
+    font-weight:bold;
+}
+.submit-btn{
+    background-color: #002233;
+    color: white;
+    font-weight: bold;
+    padding: 1rem 4rem;
+    outline: none;
+    border:none;
+    border-radius: 60px;
+}
+.alert-color{
+    background: #002233;
+    color: #fff;
+}
+.check-boxes{
+    display: flex;
+    justify-content: space-between;
+}
+/* @media screen and (max-width:) {
+    
+} */
