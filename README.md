@@ -2,7 +2,7 @@
 # QUESTION 1
 ### [Click to view my deployed App](http://54.84.183.133/) 
 ### [Click me to view design on figma](https://www.figma.com/file/u1Rbq0v8Olgnc78p5d8zSC/full-design?node-id=4%3A43)
-### My server Configurations [My server Configurations](https://www.figma.com/file/u1Rbq0v8Olgnc78p5d8zSC/full-design?node-id=4%3A43)
+###  [ click to view My server Configurations](https://github.com/Danchiwaz/technical-interview-interintel/tree/main/server_configurations)
 # Understanging what is django
 ###### Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
 # How I Developed the site
