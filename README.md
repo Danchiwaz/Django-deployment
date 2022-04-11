@@ -29,6 +29,8 @@
 ### 6. Now We can install Django inside our Virtualenv, `pip install django`
 
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django.png "install inside dir virtualenv")
+### 7. Lets now create django project by running `django-admin startproject <yourProjectName>
+![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django_run.png "install inside dir virtualenv")
 
 
 
