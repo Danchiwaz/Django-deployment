@@ -13,12 +13,22 @@
 
 # Walkthrough
 1. Navigate to your CMD or bash on Ubuntu.We need to install virtual environment.Type on your cmd `pip install virtualenv`
+
+
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/install_virtu.png "install virtualenv")
 2. Create a directory/folder for you project `md yourDirecoryName` and click enter
 3. Nagigate to the directory created `cd yourDirectoryName`
 4. Inside the Directory lets create a virtual environment.Write the following `virtualenv myEnv`
+
+
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/virtual.png "install inside dir virtualenv")
 5. Activate the virtual environment `.\myEn\Scripts\activate`
+
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/activate.png "install inside dir virtualenv")
-( "install inside dir virtualenv")
+
+6. Now We can install Django inside our Virtualenv, `pip install django`
+
+![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django.png "install inside dir virtualenv")
+
+
 
