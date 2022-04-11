@@ -1,0 +1,19 @@
+server {
+    listen      80;
+    server_name micro.domains www.micro.domains;
+    charset     utf-8;
+    # max upload size
+    client_max_body_size 75M;
+    # Django media and static files
+    location /media  {
+        alias /home/ubuntu/rourReponame/media;
+    }
+    location /static {
+        alias /home/ubuntu/yourRoponame/static;
+    }
+    # Send all non-media requests to the Django server.
+    location / {
+        uwsgi_pass  django;
+        include     /home/ubuntu/yourReponame/uwsgi_params;
+    }
+}
