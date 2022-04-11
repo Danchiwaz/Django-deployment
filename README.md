@@ -38,6 +38,17 @@
   
 ## Your are now running Django
   
+# Create a Repository on github and push your code using the following commands
+  ```python
+   
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Danchiwaz/interIntel.git
+git push -u origin main
+  ```
+  
   # Deploy Django  
   
   ###### For production we shall use nginx, uwsgi and aws EC2 
