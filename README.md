@@ -103,8 +103,8 @@ sudo apt-get upgrade
  ### 2.  Use a Virtual Environment for Python
   ```python
   apt-get install python3-venv
-mkdir /home/udoms/env/
-python3 -m venv /home/udoms/env/md
+mkdir /home/ubuntu/env/
+python3 -m venv /home/ubuntu/env/md
   ```
  ### 3. Now activate your virtual environment.
   ```python
