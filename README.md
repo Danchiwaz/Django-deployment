@@ -31,6 +31,10 @@
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django.png "install inside dir virtualenv")
 ### 7. Lets now create django project by running `django-admin startproject <yourProjectName>
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django_run.png "install inside dir virtualenv")
+### 8. Navigate to the project by `cd <yourProjectName>
+![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django_root.png "install inside dir virtualenv")
+### 9. Run Django
+![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django_running.png "install inside dir virtualenv")
 
 
 
