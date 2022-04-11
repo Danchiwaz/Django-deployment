@@ -45,7 +45,7 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/Danchiwaz/interIntel.git
+git remote add origin https://github.com/yourGithubName/yourRepoName.git
 git push -u origin main
   ```
   
@@ -86,5 +86,143 @@ git push -u origin main
 - On launch-wizard-1 page, click Edit inbound rules.
 - On Edit inbound rules page, add *SSH* type rule whose source is *My IP*; add *HTTP* type rule whose source is *Anywhere-IPv4*; add *HTTP* type rule whose source is *Anywhere-IPv6*; add *HTTPS* type rule whose source is *Anywhere-IPv4*; add *HTTPS* type rule whose source is *Anywhere-IPv6*.
   ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/security.png "install inside dir virtualenv")
+  
+###  Step 4 Configure EC2 instance
+  ###### Connect to Ec2 bash in order to do the configuration,we will connect to the browser.Click Connect
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/click.png "install inside dir virtualenv") 
+  ###### At the bottom Click connect button
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/click_connect.png "install inside dir virtualenv")
+  ###### After connecting to bash lets update the server
+ ### 1. Update Your Server
+  ###### Its very much important to update the server
+  ```python
+  sudo apt-get update
+sudo apt-get upgrade
+  
+  ```
+ ### 2.  Use a Virtual Environment for Python
+  ```python
+  apt-get install python3-venv
+mkdir /home/udoms/env/
+python3 -m venv /home/udoms/env/md
+  ```
+ ### 3. Now activate your virtual environment.
+  ```python
+  source /home/ubuntu/env/md/bin/activate
+  ```
+  ###### After activating you will see something like this
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/bash.png "install inside dir virtualenv")
+  
+  ###### You can also verify that you are working from within your virtual environment by taking a look at where the Python binary is located.`which python`
+ ### 4. clone the repo 
+  ```python
+  git clon <url to to you repo>
+  ```
+  ### 5. Navigate to the cloned repo folder `cd microdomains`
+  ### 6.  Get Started With uWSGI
+  ###### First we need to install the web server gateway interface (WSGI). In this case, we will be using uWSGI. You will also need the development packages for your version of Python to be installed.
+  ```python 
+  sudo apt-get install python3.8-dev
+sudo apt-get install gcc
+pip install uwsgi
+  ```
+  
+ ### 7. Add you domain which will be your public ip  address or domain name to allowed in settings.py on django project
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/allowed.png "install inside dir virtualenv")
+ ### 8. Get Started With uWSGI
+  ###### First we need to install the web server gateway interface (WSGI). In this case, we will be using uWSGI. You will also need the development packages for your version of Python to be installed.
+ ```python
+  sudo apt-get install python3.8-dev
+sudo apt-get install gcc
+pip install uwsgi
+  ```
+### 8. Configure the Nginx Web Server
+  ###### Install Nginx `sudo apt-get install nginx`
+### 9. Let’s tell Nginx about our Django project by creating a configuration file at sudo nano /etc/nginx/sites-available/microdomains.conf
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/config.png "install inside dir virtualenv")
+  ```python
+  # the upstream component nginx needs to connect to
+upstream django {
+    server unix:///home/udoms/yourreponame/mysite.sock;
+}
+# configuration of the server
+server {
+    listen      80;
+    server_name micro.domains www.micro.domains;
+    charset     utf-8;
+    # max upload size
+    client_max_body_size 75M;
+    # Django media and static files
+    location /media  {
+        alias /home/ubuntu/rouyReponame/media;
+    }
+    location /static {
+        alias /home/ubuntu/yourRoponame/static;
+    }
+    # Send all non-media requests to the Django server.
+    location / {
+        uwsgi_pass  django;
+        include     /home/ubuntu/yourReponame/uwsgi_params;
+    }
+}
+  ```
+ ### 9. We need to create the `sudo nano /home/udoms/microdomains/uwsgi_params
+  ```python
+  uwsgi_param  QUERY_STRING       $query_string;
+uwsgi_param  REQUEST_METHOD     $request_method;
+uwsgi_param  CONTENT_TYPE       $content_type;
+uwsgi_param  CONTENT_LENGTH     $content_length;
+uwsgi_param  REQUEST_URI        $request_uri;
+uwsgi_param  PATH_INFO          $document_uri;
+uwsgi_param  DOCUMENT_ROOT      $document_root;
+uwsgi_param  SERVER_PROTOCOL    $server_protocol;
+uwsgi_param  REQUEST_SCHEME     $scheme;
+uwsgi_param  HTTPS              $https if_not_empty;
+uwsgi_param  REMOTE_ADDR        $remote_addr;
+uwsgi_param  REMOTE_PORT        $remote_port;
+uwsgi_param  SERVER_PORT        $server_port;
+uwsgi_param  SERVER_NAME        $server_name;
+  ```
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/micro.png "install inside dir virtualenv")
+  
+### 10. Next we can publish our changes by creating a symbolic link from sites-available to sites-enabled like so:
+  `sudo ln -s /etc/nginx/sites-available/microdomains.conf /etc/nginx/sites-enabled/`
+### 11. At settings.py on your django project ,add the following 
+  ```python
+  STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+  ```
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/macro.png "install inside dir virtualenv")
 
-
+###### With these changes in place, we can now tell Django to put all static files in the static folder.Run `python manage.py collectstatic`
+ ### 12. Restart the Nginx server to apply changes by running the following command
+  `sudo /etc/init.d/nginx restart`
+  ### 13. Get Nginx, uWSGI, and Django to Work Together `uwsgi --socket mysite.sock --module yourRepoName.wsgi --chmod-socket=666`
+  ### 14. Lets now configure our Production server
+  ###### Rather than passing arguments to uWSGI like we did above, we can put these options in a configuration file at the root of you Django project called `mysite_uwsgi.ini`
+  ```python
+  [uwsgi]
+# full path to Django project's root directory
+chdir            = /home/ubuntu/yourReponame/
+# Django's wsgi file
+module           = yourReponame.wsgi
+# full path to python virtual env
+home             = /home/ubuntu/env/md
+# enable uwsgi master process
+master          = true
+# maximum number of worker processes
+processes       = 10
+# the socket (use the full path to be safe
+socket          = /home/ubuntu/yourReponame/mysite.sock
+# socket permissions
+chmod-socket    = 666
+# clear environment on exit
+vacuum          = true
+# daemonize uwsgi and write messages into given log
+daemonize       = /home/ubuntu/uwsgi-emperor.log
+  ```
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/wsgi.png "install inside dir virtualenv")
+ ######  Proceed to start up uwsgi and specify the ini file by running the command: `uwsgi --ini microdomains_uwsgi.ini`
+  
+###### Visit http:public ip address/domain name a browser and you will see the default Django landing page if everything works correctly.
+  
