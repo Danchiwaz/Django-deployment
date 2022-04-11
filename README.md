@@ -13,4 +13,7 @@
 
 # Walkthrough
 1. Navigate to your CMD or bash on Ubuntu.We need to install virtual environment.Type on your cmd `pip install virtualenv`
+[alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/install_virtu.png "install virtualenv")
+2. Create a directory/folder for you project `md yourDirecory name` and click enter
+3. Inside the Directory lets create a virtual environment.Write the following `virtualenv myEnv`
 
