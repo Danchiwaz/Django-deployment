@@ -31,10 +31,49 @@
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django.png "install inside dir virtualenv")
 ### 7. Lets now create django project by running `django-admin startproject <yourProjectName>
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django_run.png "install inside dir virtualenv")
-### 8. Navigate to the project by `cd <yourProjectName>
+### 8. Navigate to the project by `cd <yourProjectName>`
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django_root.png "install inside dir virtualenv")
-### 9. Run Django
+### 9. Run Django by writting `python manage.py runserver`
 ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/django_running.png "install inside dir virtualenv")
+  
+## Your are now running Django
+  
+  # Deploy Django  
+  
+  ###### For production we shall use nginx, uwsgi and aws EC2 
+  
+  ### Create a free acccount on aws [Click me to view the Live App](https://aws.amazon.com/free/)
+  ### Step 1: Have an EC2 instance 
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/aws.png "install inside dir virtualenv")
+  #### On Step1: Choose an Amazon Machine Image (AMI) page,
+  -Search by “ubuntu”.
+  -choose 64-bit (x86) and select Ubuntu Server 20.04 LTS (HVM), SSD Volume Type.
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/search.png "install inside dir virtualenv")
+### step 2: Ensure Choose instance type that is marked as *** Free tier eligible ***
+  - Click *** Review and Launch. ***
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/launch.png "install inside dir virtualenv")
+### step 3:  Review Instance Launch page, our instance will be running Ubuntu Server 20.04.Click Launch.
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/launch2.png "install inside dir virtualenv")
+### On Select an existing key pair or create a new key pair modal:
+  -Choose Create a new key pair
+-Choose RSA key pair type
+-Type in key pair name. For example, my_demo_key.
+-Click Download Key Pair. A my_demo_key.pem file should be downloaded on your local machine. Make sure you safely store this key file.
+-Click Launch Instances.
+  
+ ### Wait a few seconds. We should see the page below once the instance is ready. Click View Instances.
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/view.png "install inside dir virtualenv")
+ ### On Instances page, the instance that we just launched should be displayed.
+- Type a name that is easy to remember. For example, my_demo_server.
+- Take a note of its public IPv4 address. For example, 54.193.19.108.
+- Take a note of its security group name. For example by default, launch-wizard-1.
 
+###### At this point, a new instance is launched.
+### To connect instance and make instance public, we need to alter security group.
+- Open Security Groups page that is under Network & Security section.
+- Click Security group ID of launch-wizard-1 group.
+- On launch-wizard-1 page, click Edit inbound rules.
+- On Edit inbound rules page, add *SSH* type rule whose source is *My IP*; add *HTTP* type rule whose source is *Anywhere-IPv4*; add *HTTP* type rule whose source is *Anywhere-IPv6*; add *HTTPS* type rule whose source is *Anywhere-IPv4*; add *HTTPS* type rule whose source is *Anywhere-IPv6*.
+  ![alt text](https://github.com/Danchiwaz/technical-interview-interintel/blob/main/screenshots/security.png "install inside dir virtualenv")
 
 
